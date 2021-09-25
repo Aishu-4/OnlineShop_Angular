@@ -1,0 +1,78 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddRetailer">
+    Add Retailer
+   </button>
+   
+   <!-- Modal -->
+   <div class="modal fade" id="AddRetailer" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+     <div class="modal-dialog modal-dialog-centered" role="document">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5 class="modal-title" id="exampleModalCenterTitle">Add Retailer</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
+         </div>
+         <div class="modal-body">
+             <form>
+                 <div class="mb-3">
+                     <label for="" class="form-label"> Id</label>
+                     <input type="number" class="form-control" id="RetailerId">
+                  </div>
+                  <div class="mb-3">
+                     <label for="" class="form-label"> Name</label>
+                     <input type="text" class="form-control" id="RetailerName">
+                  </div>
+                 <div class="mb-3">
+                   <label for="exampleInputEmail1" class="form-label">Email address</label>
+                   <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                 <label for="" class="form-label"> Mobile Number</label>
+                 <input type="number" class="form-control" id="MobileNumber">
+              </div>
+                 
+                                
+             </form>
+         </div>
+         <div class="modal-footer">
+             <button type="button" class="btn btn-primary">Submit</button>
+         </div>
+       </div>
+     </div>
+   </div>
+ 
+ <!--table-->
+   <div class="container">
+       <div class="card">
+           <div class="card-body">
+             <table class="table table-striped">
+                 <thead>
+                   <tr>
+                     <th scope="col">Retailer ID</th>
+                     <th scope="col">Retailer Name</th>
+                     <th scope="col">Actions</th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <tr>
+                     <th scope="row">1</th>
+                     <td>Mark</td>
+                     <td><button class="btn btn-primary">Edit</button><button class="btn btn-success m-1">Notify</button><button class="btn btn-danger">Delete</button></td>
+                   </tr>
+                   <tr>
+                     <th scope="row">2</th>
+                     <td>Mark</td>
+                     <td><button class="btn btn-primary">Edit</button><button class="btn btn-success m-1">Notify</button><button class="btn btn-danger">Delete</button></td>
+                   </tr>
+                   <tr>
+                     <th scope="row">3</th>
+                     <td>Mark</td>
+                     <td><button class="btn btn-primary">Edit</button><button class="btn btn-success m-1">Notify</button><button class="btn btn-danger">Delete</button></td>
+                   </tr>
+                 </tbody>
+               </table>
+           </div>
+ 
+       </div>
+   </div>
