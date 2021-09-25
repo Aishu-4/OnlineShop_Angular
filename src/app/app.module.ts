@@ -25,7 +25,7 @@ import { CompareComponent } from './compare/compare.component';
 import { UserProfileComponent } from './Users/user-profile/user-profile.component';
 import { WishlistComponent } from './Users/wishlist/wishlist.component';
 import { CartComponent } from './cart/cart.component';
-import { SampleComponent } from './sample/sample.component';
+
 
 
 
@@ -52,7 +52,7 @@ import { SampleComponent } from './sample/sample.component';
         UserProfileComponent,
         WishlistComponent,
         CartComponent,
-        SampleComponent,
+     
 
      ],
   imports: [
