@@ -3,6 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
+
+import { HttpClientModule } from '@angular/common/http';
+
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -25,6 +30,7 @@ import { CompareComponent } from './compare/compare.component';
 import { UserProfileComponent } from './Users/user-profile/user-profile.component';
 import { WishlistComponent } from './Users/wishlist/wishlist.component';
 import { CartComponent } from './cart/cart.component';
+import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 
 
 
@@ -52,6 +58,9 @@ import { CartComponent } from './cart/cart.component';
         UserProfileComponent,
         WishlistComponent,
         CartComponent,
+        AdminLoginComponent,
+        
+        
      
 
      ],
@@ -59,8 +68,10 @@ import { CartComponent } from './cart/cart.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
-  ],
+    FormsModule,
+    HttpClientModule,
+   
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
