@@ -1,5 +1,6 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { AdminComponent } from './admin/admin.component';
 import { CarouselComponent } from './Home/carousel/carousel.component';
 
@@ -34,9 +35,12 @@ const routes: Routes = [
   {path:'UserOTP',component:UserOTPComponent},
   {path:'New Password',component:NewPasswordComponent},
   {path:'ProductDetails',component:ProductDetailsComponent},
-  {path:'Admin',component:AdminComponent},
+  {path:'Admin1',component:AdminComponent},
   {path:'WishList',component:WishlistComponent},
-  {path:'UserProfile',component:UserProfileComponent}
+  {path:'UserProfile',component:UserProfileComponent},
+
+
+
 ];
 
 @NgModule({

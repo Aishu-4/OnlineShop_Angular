@@ -30,7 +30,8 @@ import { CompareComponent } from './compare/compare.component';
 import { UserProfileComponent } from './Users/user-profile/user-profile.component';
 import { WishlistComponent } from './Users/wishlist/wishlist.component';
 import { CartComponent } from './cart/cart.component';
-import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
+
+
 
 
 
@@ -58,7 +59,7 @@ import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
         UserProfileComponent,
         WishlistComponent,
         CartComponent,
-        AdminLoginComponent,
+       
         
         
      
@@ -70,6 +71,7 @@ import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    
    
     ],
   providers: [],
