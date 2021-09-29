@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { User } from 'src/app/models/user.model';
+import { UserService } from 'src/app/Services/user.service';
 
 
 
@@ -9,35 +12,34 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./user-register.component.css']
 })
 export class UserRegisterComponent implements OnInit {
-
-  constructor() { }
+  user:User
+  constructor(private UserService:UserService,private router:Router) {  this.user=new User();}
   Registerform:FormGroup=new FormGroup({
-    Name:new FormControl("",[Validators.required,Validators.pattern("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$")]),
-    password: new FormControl(null, [Validators.required]),
-    confirmedPassword: new FormControl(null, [Validators.required]),
-    Email:new FormControl("",[Validators.required,Validators.pattern("^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$")]),
-    Mobile:new FormControl("",[Validators.required,Validators.pattern("^[0-9]{10}$")]),
-    City:new FormControl("",[Validators.required,Validators.pattern("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$")]),
-    State:new FormControl("",[Validators.required,Validators.pattern("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$")]),
-    Qualification:new FormControl("",[Validators.required]),
-    YearOfCompletion:new FormControl("",[Validators.required])
-
+   
+    
+    useremail:new FormControl("",[Validators.required,Validators.pattern("^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$")]),
+    username:new FormControl("",[Validators.required,Validators.pattern("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$")]),
+   
+    userphone:new FormControl("",[Validators.required,Validators.pattern("^[0-9]{10}$")]),
+    
+  userpassword: new FormControl("", [Validators.required]),
+  checkpassword: new FormControl("", [Validators.required])
   });
-  get Name()
+  get username()
   {
-    return this.Registerform.get('Name');
+    return this.Registerform.get('username');
   }
-  get Password()
+  get userpassword()
   {
-    return this.Registerform.get('Password');
+    return this.Registerform.get('userpassword');
   }
-  get Email()
+  get useremail()
   {
-    return this.Registerform.get('Email');
+    return this.Registerform.get('useremail');
   }
-  get Mobile()
+  get userphone()
   {
-    return this.Registerform.get('Mobile');
+    return this.Registerform.get('userphone');
   }
   get City()
   {
@@ -59,9 +61,34 @@ export class UserRegisterComponent implements OnInit {
   ngOnInit(): void {
     
   }
-  Submitregister()
-  {
-    
-  }
   
-}
+  
+  submitted:boolean=false;
+  check:boolean=false;
+  checkpassword:any;
+  status:any;
+  statusObj: any = {};
+  
+  
+  register() {
+    console.log(this.Registerform.value);
+    this.UserService.AddUser(this.Registerform.value).subscribe(data => {
+      this.statusObj = data;
+      //let jdata = JSON.parse(data.toString());
+      console.log(this.statusObj);
+      if(this.statusObj.status == "successful") {
+        this.router.navigateByUrl("/Admin1");
+      }
+      else {
+        this.status = "User Already Exist";
+      }
+    });
+
+  }
+
+      get f() { 
+        return this.Registerform.controls; 
+      }
+    
+  
+    }

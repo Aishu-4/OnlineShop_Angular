@@ -1,60 +1,68 @@
 <div class="centering">  
     <a href="#">Online Shopping</a>
-    <form class="container border border-primary rounded p-3" [formGroup]="Registerform" (ngSubmit)="Submitregister()" novalidate>
+    <form class="container border border-primary rounded p-3" [formGroup]="Registerform" (ngSubmit)="register()">
       <h1>Register</h1>
       <div class="mb-1">
         <label class="form-label">Name</label>
-        <input type="text" class="form-control" formControlName="Name">
+        <input type="text" class="form-control"   formControlName="username">
       </div>
-      <div *ngIf="!Name?.valid && (Name?.dirty || Name?.touched)" class="error">
-        <div *ngIf="Name!.errors!.required">
+      <div *ngIf="!username?.valid && (username?.dirty || username?.touched)" class="error">
+        <div *ngIf="username!.errors!.required">
           <p style="color:red;">Full Name is required</p>
         </div>
-        <div *ngIf="Name!.errors!.pattern">
+        <div *ngIf="username!.errors!.pattern">
           <p style="color: red;">Enter Name in correct format</p>
         </div>
      </div>
       <div class="mb-1">
         <label  class="form-label">Mobile Number</label>
-        <input type="number" class="form-control" formControlName="Mobile">
+        <input type="text" class="form-control"   formControlName="userphone">
       </div>
-      <div *ngIf="!Mobile?.valid && (Mobile?.dirty || Mobile?.touched)" class="error">
-        <div *ngIf="Mobile!.errors!.required">
+      <div *ngIf="!userphone?.valid && (userphone?.dirty || userphone?.touched)" class="error">
+        <div *ngIf="userphone!.errors!.required">
           <p style="color: red;">mobile number is required</p>
         </div>
-        <div *ngIf="Mobile!.errors!.pattern">
+        <div *ngIf="userphone!.errors!.pattern">
           <p style="color: red;">Enter correct mobile number</p>
         </div>
       </div>
         <div class="mb-1">
           <label for="exampleInputEmail1" class="form-label">Email address</label>
-          <input type="email" class="form-control" formControlName="Email" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <input type="email" class="form-control"  formControlName="useremail" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
-        <div *ngIf="!Email?.valid && (Email?.dirty || Email?.touched)" class="error">
-          <div *ngIf="Email!.errors!.required">
+        <div *ngIf="!useremail?.valid && (useremail?.dirty || useremail?.touched)" class="error">
+          <div *ngIf="useremail!.errors!.required">
             <p style="color: red;">Email is required</p>
           </div>
-          <div *ngIf="Email!.errors!.pattern">
+          <div *ngIf="useremail!.errors!.pattern">
             <p style="color: red;">Enter the correct email</p>
           </div>
         </div>
         <div class="mb-1">
           <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input type="password" formControlName="Password" class="form-control" id="exampleInputPassword1">
+          <input type="password"  formControlName="userpassword" class="form-control" id="exampleInputPassword1">
         </div>
-        <div *ngIf="!Password?.valid && (Password?.dirty || Password?.touched)" class="error">
-          <div *ngIf="Password!.errors!.required">
+        <div *ngIf="!userpassword?.valid && (userpassword?.dirty || userpassword?.touched)" class="error">
+          <div *ngIf="userpassword!.errors!.required">
             <p style="color: red;">Password is required</p>
           </div>
-          <div *ngIf="Password!.errors!.pattern">
+          <div *ngIf="userpassword!.errors!.pattern">
             <p style="color: red;">Password should contain Minimum eight characters,first letter should be upper case and should have atleast one number,lowercase and special characters</p>
           </div>
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <input type="password" formControlName="checkpassword" class="form-control" id="exampleInputPassword">
+            
           </div>
-       
+          <div *ngIf="!checkpassword?.valid && (checkpassword?.dirty || checkpassword?.touched)" class="error">
+            <div *ngIf="checkpassword!.errors!.required">
+              <p style="color: red;">Password is required</p>
+            </div>
+            <div *ngIf="checkpassword!.errors!.pattern">
+              <p style="color: red;">Password should contain Minimum eight characters,first letter should be upper case and should have atleast one number,lowercase and special characters</p>
+            </div>
+          </div>
         <input type="submit" value="Sign Up" >
         <div class="register">
           Already User? <a data-toggle="modal" routerLink=""  data-target="#exampleModalScrollable">Login</a>

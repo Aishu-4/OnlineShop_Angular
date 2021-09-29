@@ -15,6 +15,7 @@ r Header-->
             <button type="button" class="btn btn-primary" routerLink="/WishList" ><b>My WishList</b></button>
           </li>
         </ul>
+        <p style ="color: cornsilk;"><b>Welcome {{name}}</b></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <form class="d-flex">
             <!-- Button trigger modal -->
            <button type="button" class="btn btn-primary" routerLink="/Forgot Password">
@@ -23,7 +24,7 @@ r Header-->
          </form>
         
         <form class="d-flex">
-          {{name}}
+        
          <button type="button" class="btn btn-primary" (click)="LogOff()" routerLink="" >
            <b>Logout</b>
          </button>
@@ -35,9 +36,7 @@ r Header-->
   <br>
 
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddRetailer">
-    Add Retailer
-   </button>
+
    
    <!-- Modal -->
    <div class="modal fade" id="AddRetailer" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -77,6 +76,7 @@ r Header-->
        </div>
      </div>
    </div>
+   
  
  <!--table-->
    <div class="container">
@@ -112,3 +112,6 @@ r Header-->
  
        </div>
    </div>
+   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddRetailer">
+    Add Retailer
+   </button>

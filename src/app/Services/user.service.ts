@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 @Injectable(  {providedIn: 'root'})
 export class UserService{
     url:string="http://localhost:23441/api/User";
-    constructor(private client:HttpClient,private registerHttp:HttpClient)
+    constructor(private client:HttpClient,private httpclient:HttpClient)
     {
 
     }
@@ -17,6 +17,10 @@ export class UserService{
   
     UserLogin(user: User) {
       return this.client.post(this.url+'/UserLogin', JSON.stringify(user), this.httpOptions);
+    }
+    AddUser(user:User)
+    {
+        return this.client.post(this.url+"/AddUser",JSON.stringify(user), this.httpOptions);
     }
     
    

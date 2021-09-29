@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { RetailerService } from 'src/app/Services/retailer.service';
+
 
 @Component({
   selector: 'app-register',
@@ -8,30 +11,33 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
-  Registerform:FormGroup=new FormGroup({
-    Name:new FormControl("",[Validators.required,Validators.pattern("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$")]),
-    Email:new FormControl("",[Validators.required,Validators.pattern("^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$")]),
-    Mobile:new FormControl("",[Validators.required,Validators.pattern("^[0-9]{10}$")])
+  constructor(private RetailerService: RetailerService, private router: Router) { }
+  RetailerRegisterform:FormGroup=new FormGroup({
+    retailername:new FormControl("",[Validators.required,Validators.pattern("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$")]),
+    retaileremail:new FormControl("",[Validators.required,Validators.pattern("^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$")]),
+    
+    retailermobile:new FormControl("",[Validators.required,Validators.pattern("^[0-9]{10}$")]),
+    retailerpassword: new FormControl("",[Validators.required,Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")])
   });
-  get Name()
+  get retailername()
   {
-    return this.Registerform.get('Name');
+    return this.RetailerRegisterform.get('retailername');
   }
-  get Email()
+  get  retaileremail()
   {
-    return this.Registerform.get('Email');
+    return this.RetailerRegisterform.get('retaileremail');
   }
-  get Mobile()
+  get retailermobile()
   {
-    return this.Registerform.get('Mobile');
+    return this.RetailerRegisterform.get('retailermobile');
+  }
+  get retailerpassword()
+  {
+    return this.RetailerRegisterform.get('retailerpassword');
   }
 
   ngOnInit(): void {
   }
-  Submitregister()
-  {
-    
-  }
+ 
 
 }

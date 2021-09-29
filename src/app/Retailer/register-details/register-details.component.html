@@ -1,30 +1,28 @@
 <div class="centering">  
    
-    <form class="container border border-primary rounded p-4 " >
+    <form class="container border border-primary rounded p-4 " [formGroup]="RegisterDetsform" (ngSubmit)="Submitregister()" novalidate >
       <h1>Register</h1>
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">GST Number</label>
-        <input type="text" class="form-control" id="exampleInputGST" aria-describedby="emailHelp">
+        <input type="text" class="form-control" formControlName="gst" id="exampleInputGST" aria-describedby="emailHelp">
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Aadhar Number</label>
-        <input type="text" class="form-control" id="exampleInputAadhar" aria-describedby="emailHelp">
+        <input type="text" class="form-control" formcontrolname="aadhar" id="exampleInputAadhar" aria-describedby="emailHelp">
       </div>
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">PAN</label>
-          <input type="text" class="form-control" id="exampleInputPAN" aria-describedby="emailHelp">
+          <input type="text" class="form-control" formcontrolname="pan" id="exampleInputPAN" aria-describedby="emailHelp">
         </div>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Product Category and Description</label>
-            <input type="text" class="form-control" id="exampleInputPCD" aria-describedby="emailHelp">
-          </div>
+        
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Company Details</label>
-            <input type="text" class="form-control" id="exampleInputCD" aria-describedby="emailHelp">
+            <input type="text" class="form-control" formcontrolname="cmpdets" id="exampleInputCD" aria-describedby="emailHelp">
           </div>
       
       
-        <input type="submit"  value="Verify">
+        <input type="submit"  value="Request For Approval" (click)="Approval()" >
+
        
     </form>
   </div>

@@ -13,7 +13,7 @@ export class AdminComponent implements OnInit {
   adminlogged:boolean=false;
   admin:null|string="";
   ngOnInit(): void {
-    this.admin = sessionStorage.getItem('email');
+    this.admin = sessionStorage.getItem('admin');
     if(this.admin != null ){
       this.adminlogged=true;
     this.name=this.admin}
