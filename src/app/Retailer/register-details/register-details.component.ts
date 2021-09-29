@@ -15,47 +15,71 @@ export class RegisterDetailsComponent implements OnInit {
   status:any;
   ngOnInit(): void {
   }
-  RegisterDetsform:FormGroup=new FormGroup({gst:new FormControl("",[Validators.required,Validators.pattern("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$")]),
-  pan:new FormControl("",[Validators.required,Validators.pattern("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$")]),
-  aadhar:new FormControl("",[Validators.required,Validators.pattern("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$")]),
-  cmpdets:new FormControl("",[Validators.required,Validators.pattern("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$")]),
-
+  RegisterDetsform:FormGroup=new FormGroup({GST:new FormControl("",[Validators.required]),
+  Pan:new FormControl("",[Validators.required]),
+  Aadhar:new FormControl("",[Validators.required]),
+  CompanyDetails:new FormControl("",[Validators.required]),
+  retailername:new FormControl("",[Validators.required,Validators.pattern("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$")]),
+  retaileremail:new FormControl("",[Validators.required,Validators.pattern("^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$")]),
+    
+  MobNo:new FormControl("",[Validators.required,Validators.pattern("^[0-9]{10}$")]),
+  retailerpassword: new FormControl("",[Validators.required,Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")])
 
  });
  Approval(){
    alert("Request has been sent to admin,please check confirmation mail for your approval status");
    this.clicked=true;
  }
- get pan()
+ get Pan()
   {
-    return this.RegisterDetsform.get('pan');
+    return this.RegisterDetsform.get('Pan');
   }
-  get aadhar()
+  get Aadhar()
   {
-    return this.RegisterDetsform.get('aadhar');
+    return this.RegisterDetsform.get('Aadhar');
   }
-  get cmpdets()
+  get CompanyDetails()
   {
-    return this.RegisterDetsform.get('cmpdets');
+    return this.RegisterDetsform.get('CompanyDetails');
   }
-  get gst()
+  get GST()
   {
-    return this.RegisterDetsform.get('gst');
+    return this.RegisterDetsform.get('GST');
   }
- Submitregister()
+  get retailername()
   {
-    this.submitted = true;
-    this.status = this.RetailerService.RetailerRegister(this.RegisterDetsform.value).subscribe(
-      data =>{
-        if(data=="successful"){
-            console.log(this.RegisterDetsform.value.gst);
-            alert('Registration successful... ');
-            
-            this.router.navigate([' ']);
-        }else{
-          alert('Registration Unsuccessful... try again');
-        }
-      })
+    return this.RegisterDetsform.get('retailername');
   }
+  get  retaileremail()
+  {
+    return this.RegisterDetsform.get('retaileremail');
+  }
+  get MobNo()
+  {
+    return this.RegisterDetsform.get('MobNo');
+  }
+  get retailerpassword()
+  {
+    return this.RegisterDetsform.get('retailerpassword');
+  }
+ 
+  statusObj: any = {};
+ Submitregister(){
+ console.log(this.RegisterDetsform.value);
+ this.RetailerService.RetailerRegister(this.RegisterDetsform.value).subscribe(data => {
+   this.statusObj = data;
+   //let jdata = JSON.parse(data.toString());
+   console.log(this.statusObj);
+   if(this.statusObj.status == "successful") {
+     alert("Registered successfully...");
+     this.router.navigateByUrl(" ");
+   }
+   else {
+     this.status = "Retailer Already Exist";
+   }
+ });
+
+}
+    
 
 }

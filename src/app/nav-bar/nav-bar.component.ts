@@ -18,7 +18,10 @@ export class NavBarComponent implements OnInit {
   name : string="";
   adminlogged:boolean=false;
   admin:null|string="";
-  
+  retailer:null|string="";
+  retailerlogged:boolean=false;
+  user:null|string="";
+  userlogged:boolean=false;
   constructor(private UserService: UserService,private AdminService:AdminService,private RetailerService:RetailerService ,private router: Router) { }
 
   ngOnInit(): void {
@@ -26,6 +29,16 @@ export class NavBarComponent implements OnInit {
     if(this.admin != null ){
       this.adminlogged=true;
     this.name=this.admin}
+
+    this.user = sessionStorage.getItem('user');
+    if(this.user != null ){
+      this.userlogged=true;
+    this.name=this.user}
+
+    this.admin = sessionStorage.getItem('retailer');
+    if(this.retailer != null ){
+      this.retailerlogged=true;
+    this.name=this.retailer}
     
    
   }
@@ -134,11 +147,11 @@ get retailerpassword()
           sessionStorage.setItem('retailer', this.RetailerLoginForm.controls.retaileremail.value);
           sessionStorage.setItem('reload',"done");
          // this.router.navigate(['Admin']);
-         this.router.navigateByUrl("/Admin1");
+         this.router.navigateByUrl("/Login");
          
         }
         else {
-          this.status = "Inavlid credentials";
+          this.status = "Please check your login credentials or wait for admin approval....";
           alert(this.status);
         }
       });

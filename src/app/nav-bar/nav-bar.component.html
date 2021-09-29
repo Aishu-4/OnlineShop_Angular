@@ -50,7 +50,7 @@
           <!-- Button trigger modal -->
           
           <div class="dropdown" >
-            <button class="btn btn-primary dropdown-toggle" *ngIf="adminlogged==false" type="button"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-primary dropdown-toggle" type="button"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Login/ Sign Up
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -60,6 +60,7 @@
             </div>
           </div>
          <p *ngIf="adminlogged==true" routerLink="/Admin1" > {{name}}</p>
+         
            
    
        </form>
@@ -218,9 +219,9 @@
           
           </div>
             <div class="pass" routerLink="Forgot Password" data-dismiss="modal" >Forgot Password?</div>
-            <input type="submit" value="Login" [disabled]="!RetailerLoginForm.valid"/>
+            <input type="submit" value="Login"  [disabled]="!RetailerLoginForm.valid"/>
             <div class="retailer" >
-              Buying for Work? <a routerLink="/Register" data-dismiss="modal" >Register for Business account</a>
+              Buying for Work? <a routerLink="/RegisterDetails" data-dismiss="modal" >Register for Business account</a>
             </div>
            
         </form>

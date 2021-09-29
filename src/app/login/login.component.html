@@ -5,22 +5,24 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0   " >
           <li class="nav-item">
             <button type="button" class="btn btn-primary" routerLink="/ProductDetails" ><b>Product Details</b></button>
           </li>
         </ul>
+        <p style ="color: cornsilk;"><b>Welcome ,{{name}}</b></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <form class="d-flex">
             <!-- Button trigger modal -->
-           <button type="button" class="btn btn-primary" routerLink="Forgot Password">
+           <button type="button" class="btn btn-primary" routerLink="/Forgot Password">
              <b>Change Password</b>
            </button>
          </form>
-        
+      
         <form class="d-flex">
           
-         <button type="button" class="btn btn-primary" routerLink="" >
+         <button type="button" class="btn btn-primary" (click)="LogOff()" routerLink="" >
            <b>Logout</b>
          </button>
        </form>

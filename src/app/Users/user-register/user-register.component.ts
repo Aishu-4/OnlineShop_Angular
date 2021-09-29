@@ -12,8 +12,8 @@ import { UserService } from 'src/app/Services/user.service';
   styleUrls: ['./user-register.component.css']
 })
 export class UserRegisterComponent implements OnInit {
-  user:User
-  constructor(private UserService:UserService,private router:Router) {  this.user=new User();}
+  
+  constructor(private UserService:UserService,private router:Router) { }
   Registerform:FormGroup=new FormGroup({
    
     
@@ -22,8 +22,8 @@ export class UserRegisterComponent implements OnInit {
    
     userphone:new FormControl("",[Validators.required,Validators.pattern("^[0-9]{10}$")]),
     
-  userpassword: new FormControl("", [Validators.required]),
-  checkpassword: new FormControl("", [Validators.required])
+    userpassword: new FormControl("", [Validators.required]),
+    checkpassword: new FormControl("", [Validators.required])
   });
   get username()
   {
@@ -41,22 +41,7 @@ export class UserRegisterComponent implements OnInit {
   {
     return this.Registerform.get('userphone');
   }
-  get City()
-  {
-    return this.Registerform.get('City');
-  }
-  get State()
-  {
-    return this.Registerform.get('State');
-  }
-  get Qualification()
-  {
-    return this.Registerform.get('Qualification');
-  }
-  get YearOfCompletion()
-  {
-    return this.Registerform.get('YearOfCompletion');
-  }
+  
 
   ngOnInit(): void {
     
@@ -77,7 +62,8 @@ export class UserRegisterComponent implements OnInit {
       //let jdata = JSON.parse(data.toString());
       console.log(this.statusObj);
       if(this.statusObj.status == "successful") {
-        this.router.navigateByUrl("/Admin1");
+        alert("Registered successfully...");
+        this.router.navigateByUrl(" ");
       }
       else {
         this.status = "User Already Exist";

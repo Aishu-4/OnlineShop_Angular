@@ -1,26 +1,26 @@
 export class Retailer{
     retaileremail:string; 
     retailername:string; 
-    retailermobile:any;
+    MobNo:any;
     retailerpassword :string;
-    aadhar:string="";
-    pan:string="";
+    Aadhar:string="";
+    Pan:string="";
     UserTypeID="";
-    cmpdets="";
-    gst="";
+    CompanyDetails="";
+    GST="";
    
-    constructor(retaileremail:string="", retailername:string="", retailermobile:any, retailerpassword :string="",retailergst:string="",
-    aadhar:string="",pan:string="",cmpdets:string="",UserTypeID:string="",gst:string=""
+    constructor(retaileremail:string="", retailername:string="", MobNo:any, retailerpassword :string="",GST:string="",
+    Aadhar:string="",Pan:string="",CompanyDetails:string="",UserTypeID:string=""
         )
                 {
                    this.retaileremail=retaileremail;
                    this.retailername=retailername;
                    this.retailerpassword=retailerpassword;
-                   this.retailermobile=retailermobile;
-                   this.aadhar=aadhar;
-                   this.gst=gst;
-                   this.pan=pan;
+                   this.MobNo=MobNo;
+                   this.Aadhar=Aadhar;
+                   this.GST=GST;
+                   this.Pan=Pan;
                    this.UserTypeID=UserTypeID;
-                    this.cmpdets=cmpdets;
+                    this.CompanyDetails=CompanyDetails;
                 }
 }
