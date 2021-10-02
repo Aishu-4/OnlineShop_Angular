@@ -1,5 +1,22 @@
 <!-- Button trigger modal -->
-
+<div class="bcg">
+  <br><br>
+  <h3>Please refer this table for Category ID</h3>
+  <br>
+  <table class="table table-hover">
+      <thead class="thead-dark">
+          <th>Category ID</th>
+          <th>Category Name</th>
+          <th>Category Description</th>
+      </thead>
+      <tbody>
+          <tr *ngFor = "let category of categoryList">
+              <td>{{category.categoryid}}</td>
+              <td>{{category.categoryname}}</td>
+              <td>{{category.categorydescription}}</td>
+          </tr>
+      </tbody>
+  </table>
    <br/><br/><br/>
    
    <!-- Modal -->
@@ -14,68 +31,48 @@
            </button>
          </div>
          <div class="modal-body">
-             <form>
+             <form  [formGroup]="Register1form"  (ngSubmit)="OnSubmit()">
                  <div class="mb-3">
-                     <label for="" class="form-label"> Product Name</label>
-                     <input type="text" class="form-control" id="RetailerId">
-                  </div>
-                  <div class="mb-3">
-                     <label for="" class="form-label"> Product Price</label>
-                     <input type="number" class="form-control" id="RetailerName">
+                     <label  class="form-label"> Product Name</label>
+                     <input type="text" class="form-control" formControlName="productname"    id="RetailerId">
                   </div>
                  
-                <div class="dropdown">
-                    <button class="btn btn-secondary  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Product Category
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </div><br/>
-                  <div class="dropdown">
-                    <button class="btn btn-secondary  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Product SubCategory
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </div><br/>
-                  <div class="dropdown" >
-                    <button class="btn btn-secondary  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Product Brand
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </div><br/>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">Product Description</span>
-                    </div>
-                    <textarea class="form-control" aria-label="With textarea"></textarea>
+                  <div class="mb-3">
+                     <label  class="form-label"> Product Price</label>
+                     <input type="number" class="form-control" formControlName="productprice" id="RetailerName">
                   </div>
-               <br/>   
-              <div class="mb-3">
-                <label for="" class="form-label"> Product Image</label>
-                <input class="form-control form-control-sm" id="formFileSm" type="file" />
-             </div>
+                  
+                  <div class="mb-3">
+                    <label  class="form-label"> Categoryid</label>
+                    <input type="number" class="form-control" formControlName="categoryid" id="MobileNumber1">
+                 </div>
+                 
+                  <div class="mb-3">
+                    <label  class="form-label"> Product Brand</label>
+                    <input type="text" class="form-control" formControlName="productbrand" id="MobileNumber2">
+                 </div>
+                 
+                 <div class="mb-3">
+                 <label  class="form-label"> Product Description</label>
+                  
+                    <input type="text" class="form-control" formControlName="productdescription" id="productdescription">
+                  </div>
+                 
+              
+             
              
              <div class="mb-3">
-                <label for="" class="form-label"> Product Quantity</label>
-                <input type="number" class="form-control" id="MobileNumber">
+                <label  class="form-label"> Product Quantity</label>
+                <input type="number" class="form-control" formControlName="productquantity" id="MobileNumber3">
              </div>
+             <div class="modal-footer">
+              <button type="submit" class="btn btn-primary" >Submit</button>
+          </div>
+      
                                               
              </form>
          </div>
-         <div class="modal-footer">
-             <button type="button" class="btn btn-primary">Submit</button>
-         </div>
+       
        </div>
      </div>
    </div>
@@ -88,46 +85,36 @@
              <table class="table table-striped">
                  <thead>
                    <tr>
-                     <th scope="col"> Product Name</th>
-                     <th scope="col">Product Price</th>
-                     <th scope="col">Product Category</th>
-                     <th scope="col">Product SubCategory</th>
-                     <th scope="col">Product Brand</th>
-                     <th scope="col">Product Description</th>
-                     <th scope="col">Product Image</th>
-                     <th scope="col">Product Quantity</th>
+                    <th scope="col"> Product ID</th>
+                     <th scope="col">  Name</th>
+                     <th scope="col">Price</th>
+                     <th scope="col">Category</th>
+                     
+                     <th scope="col">Brand</th>
+                     <th scope="col">Description</th>
+                     <th scope="col">Image</th>
+                     <th scope="col">Quantity</th>
+                     <th scope="col">Notification</th>
+                     <th scope="col">Status</th>
+                     
                    </tr>
                  </thead>
                  <tbody>
-                   <tr>
-                     <td>Mark</td>
-                     <td>Mark</td>
-                     <td>Mark</td>
-                     <td>Mark</td>
-                     <td>Mark</td>
-                     <td>Mark</td>
-                     <td>Mark</td>
-                     <td><button class="btn btn-primary">Edit</button><button class="btn btn-danger">Delete</button></td>
-                     <tr>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td><button class="btn btn-primary">Edit</button><button class="btn btn-danger">Delete</button></td>
-                      </tr>
-                      <tr>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td><button class="btn btn-primary">Edit</button><button class="btn btn-danger">Delete</button></td>
-                      </tr>
+                  <tr  *ngFor = "let product of ProductList">
+                    <td>{{product.productid}}</td>
+                    <td>{{product.productname}}</td>
+                    <td>{{product.productprice}}</td>
+                    <td>{{product.categoryname}}</td>
+                    <td>{{product.productbrand}}</td>
+                    <td>{{product.productdescription}}</td>
+                    <td>{{product.productimage1}}</td>
+                    <td>{{product.productquantity}}</td>
+                    <td>{{product.productnotification}}</td>
+                    <td>{{product.productstatus}}</td>
+                   
+                    <td><button class="btn btn-success m-1" data-toggle="modal" data-target="#AddRetailer1"  >Edit</button><button class="btn btn-danger">Delete</button></td>
+                  </tr>
+                  
                  </tbody>
                </table>
            </div>
@@ -135,9 +122,63 @@
        </div>
    </div>
    
-   
+  
    <div class="button">
     <button type="button" class="btn btn-success btn-lg"   data-toggle="modal" data-target="#AddRetailer">
-        Add Product
+       Add  Product
        </button>
        </div>
+
+
+        <!-- Modal -->
+  
+   <div class="modal fade" id="AddRetailer1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Edit Product</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form  [formGroup]="Register2form"  (ngSubmit)="Updateproduct()">
+               
+                
+                 <div class="mb-3">
+                    <label  class="form-label"> Product Price</label>
+                    <input type="number" class="form-control" formControlName="product1price" id="RetailerName">
+                 </div>
+                 
+                 
+                
+                 <div class="mb-3">
+                   <label  class="form-label"> Product Brand</label>
+                   <input type="text" class="form-control" formControlName="product1brand" id="MobileNumber2">
+                </div>
+                
+                <div class="mb-3">
+                <label  class="form-label"> Product Description</label>
+                 
+                   <input type="text" class="form-control" formControlName="product1description" id="productdescription">
+                 </div>
+                
+             
+            
+            
+            <div class="mb-3">
+               <label  class="form-label"> Product Quantity</label>
+               <input type="number" class="form-control" formControlName="product1quantity" id="MobileNumber3">
+            </div>
+            <div class="modal-footer">
+             <button type="submit" class="btn btn-primary" >Submit</button>
+         </div>
+     
+                                             
+            </form>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+

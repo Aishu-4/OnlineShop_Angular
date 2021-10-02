@@ -23,6 +23,11 @@ export class RetailerService{
      RetailerRegister(retailer:Retailer){
         return this.client.post(this.url+'/RetailerRegister',retailer);
     }
+
+    RetailerProducts(retaileremail:any){
+      const httpheader={headers:new HttpHeaders({'Content-Type':'text/html'})};
+      return this.client.post(this.url+"/RetailerProducts?retaileremail="+retaileremail,JSON.stringify(retaileremail), this.httpOptions);
+  }
     
    
    

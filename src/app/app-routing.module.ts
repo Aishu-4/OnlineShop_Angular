@@ -1,5 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PendingProductsComponentComponent } from './pending-products-component/pending-products-component.component';
+
 
 import { AdminComponent } from './admin/admin.component';
 import { CarouselComponent } from './Home/carousel/carousel.component';
@@ -38,6 +40,8 @@ const routes: Routes = [
   {path:'Admin1',component:AdminComponent},
   {path:'WishList',component:WishlistComponent},
   {path:'UserProfile',component:UserProfileComponent},
+  {path:'PendingProducts',component:PendingProductsComponentComponent},
+  {path:"ProductDetails/:id",component:ProductDetailsComponent},
 
 
 

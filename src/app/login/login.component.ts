@@ -20,7 +20,11 @@ export class LoginComponent implements OnInit {
         this.retailerlogged=true;
       this.name=this.retailer}
     }
-  
+
+    
+    
+
+    
   
 LogOff(){
   this.retailerlogged=false;

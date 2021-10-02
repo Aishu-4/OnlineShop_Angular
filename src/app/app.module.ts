@@ -30,6 +30,10 @@ import { CompareComponent } from './compare/compare.component';
 import { UserProfileComponent } from './Users/user-profile/user-profile.component';
 import { WishlistComponent } from './Users/wishlist/wishlist.component';
 import { CartComponent } from './cart/cart.component';
+import { PendingProductsComponentComponent } from './pending-products-component/pending-products-component.component';
+
+
+
 
 
 
@@ -59,6 +63,10 @@ import { CartComponent } from './cart/cart.component';
         UserProfileComponent,
         WishlistComponent,
         CartComponent,
+        PendingProductsComponentComponent,
+       
+        
+       
        
         
         

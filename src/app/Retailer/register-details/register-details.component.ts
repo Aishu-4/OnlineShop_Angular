@@ -73,9 +73,11 @@ export class RegisterDetailsComponent implements OnInit {
    if(this.statusObj.status == "successful") {
      alert("Registered successfully...");
      this.router.navigateByUrl(" ");
+ 
    }
    else {
      this.status = "Retailer Already Exist";
+     alert(this.status);
    }
  });
 

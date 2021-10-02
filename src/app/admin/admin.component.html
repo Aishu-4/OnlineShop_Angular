@@ -9,11 +9,9 @@ r Header-->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0   " >
           <li class="nav-item">
-            <button type="button" class="btn btn-primary" routerLink="/ProductDetails" ><b>My Orders</b></button>
+            <button type="button" class="btn btn-primary" (click)="PendingProducts()" routerLink="/PendingProducts" ><b>Products</b></button>
           </li>
-          <li class="nav-item">
-            <button type="button" class="btn btn-primary" routerLink="/WishList" ><b>My WishList</b></button>
-          </li>
+         
         </ul>
         <p style ="color: cornsilk;"><b>Welcome {{name}}</b></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <form class="d-flex">
@@ -87,25 +85,33 @@ r Header-->
                    <tr>
                      <th scope="col">Retailer ID</th>
                      <th scope="col">Retailer Name</th>
+                     
+                     <th scope="col">GST</th>
+                     <th scope="col">Aadhar</th>
+                     <th scope="col">PAN</th>
+                     <th scope="col">Mobile Number</th>
+                     <th scope="col">Status</th>
+                     
+
+                     
                      <th scope="col">Actions</th>
                    </tr>
                  </thead>
                  <tbody>
-                   <tr>
-                     <th scope="row">1</th>
-                     <td>Mark</td>
-                     <td><button class="btn btn-primary">Edit</button><button class="btn btn-success m-1">Notify</button><button class="btn btn-danger">Delete</button></td>
+                   <tr  *ngFor = "let retailer of retailerList">
+                   
+                     <td>{{retailer.retailerid}}</td>
+                     <td>{{retailer.retailername}}</td>
+                     <td>{{retailer.mobNo}}</td>
+                     <td>{{retailer.gst}}</td>
+                     <td>{{retailer.pan}}</td>
+                     <td>{{retailer.aadhar}}</td>
+                     <td>{{retailer.approved}}</td>
+                    
+                     <td><button class="btn btn-success m-1"   (click) = "ApproveRetailers(retailer.retailerid)">Approve</button><button class="btn btn-danger"     (click) = "RemoveRetailer(retailer.retailerid)">Delete</button></td>
                    </tr>
-                   <tr>
-                     <th scope="row">2</th>
-                     <td>Mark</td>
-                     <td><button class="btn btn-primary">Edit</button><button class="btn btn-success m-1">Notify</button><button class="btn btn-danger">Delete</button></td>
-                   </tr>
-                   <tr>
-                     <th scope="row">3</th>
-                     <td>Mark</td>
-                     <td><button class="btn btn-primary">Edit</button><button class="btn btn-success m-1">Notify</button><button class="btn btn-danger">Delete</button></td>
-                   </tr>
+                   
+                 
                  </tbody>
                </table>
            </div>
