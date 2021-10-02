@@ -33,15 +33,15 @@ export class ProductDetailsComponent implements OnInit {
   checkpassword:any;
   status:any;
   
-  productid:any;
+  id:any;
 
-
+  product?:Product
   
   ngOnInit(): void {
   
     this.retaileremail = sessionStorage.getItem('retailer');
-    this.productid= this.myRoute.snapshot.params["id"]
-    console.log(this.productid)
+ 
+  
     this.AdminService.GetCategories()
     .subscribe(
       data=>{this.categoriesLists = data;
@@ -136,40 +136,57 @@ export class ProductDetailsComponent implements OnInit {
 
   Register2form:FormGroup=new FormGroup({
     
-    product1price: new FormControl(""),
-    product1quantity:new FormControl(""),
-    product1description:new FormControl(""),
-    product1brand:new FormControl("")
+    productprice: new FormControl(""),
+    productquantity:new FormControl(""),
+    productdescription:new FormControl(""),
+    productbrand:new FormControl("")
     
   });
   get product1quantity()
   {
-    return this.Register2form.get('product1quantity');
+    return this.Register2form.get('productquantity');
   }
   get product1description()
   {
-    return this.Register2form.get('product1description');
+    return this.Register2form.get('productdescription');
   }
   get product1brand()
   {
-    return this.Register2form.get('product1brand');
+    return this.Register2form.get('productbrand');
   }
   
   get product1price()
   {
-    return this.Register2form.get('product1price');
+    return this.Register2form.get('productprice');
   }  
 
   Updateproduct(){
-    this.status = this.ProductService.UpdateProduct(this.productid,this.retaileremail,this.Register2form.value).subscribe(
+    this.status = this.ProductService.UpdateProduct(this.myRoute.snapshot.params['productid'],this.Register2form.value).subscribe(
       data =>{ 
+        console.log(data);
         if(data!="invalid"){
             console.log("updated");
+            console.log(data);
             alert('Product Updated Successfuly');
-            this.router.navigate(['profileRetailer']);
+           
         }else{
           alert('Product Update Unsuccessful..try again');
           console.log("not updated");
+        }
+      })
+  }
+  RemoveProduct(){
+    this.status = this.RetailerService.RemoveProduct(this.myRoute.snapshot.params['productid']).subscribe(
+      data =>{ 
+        console.log(data);
+        if(data!="invalid"){
+            console.log("remove");
+            console.log(data);
+            alert('remove notification sent to admin');
+           
+        }else{
+          alert('Product Removing Unsuccessful..try again');
+          console.log("not removed");
         }
       })
   }

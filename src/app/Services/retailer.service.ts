@@ -28,7 +28,11 @@ export class RetailerService{
       const httpheader={headers:new HttpHeaders({'Content-Type':'text/html'})};
       return this.client.post(this.url+"/RetailerProducts?retaileremail="+retaileremail,JSON.stringify(retaileremail), this.httpOptions);
   }
-    
+    RemoveProduct(productid:any)
+  {
+      const httpheader={headers:new HttpHeaders({'Content-Type':'text/html'})};
+      return this.client.put(this.url+"/RemoveProduct?productid="+productid,JSON.stringify(productid),httpheader)
+  }
    
    
 }

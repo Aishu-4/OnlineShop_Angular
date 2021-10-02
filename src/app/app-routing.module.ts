@@ -41,7 +41,7 @@ const routes: Routes = [
   {path:'WishList',component:WishlistComponent},
   {path:'UserProfile',component:UserProfileComponent},
   {path:'PendingProducts',component:PendingProductsComponentComponent},
-  {path:"ProductDetails/:id",component:ProductDetailsComponent},
+  {path:"update/:productid",component:ProductDetailsComponent},
 
 
 

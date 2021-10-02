@@ -112,7 +112,7 @@
                     <td>{{product.productnotification}}</td>
                     <td>{{product.productstatus}}</td>
                    
-                    <td><button class="btn btn-success m-1" data-toggle="modal" data-target="#AddRetailer1"  >Edit</button><button class="btn btn-danger">Delete</button></td>
+                    <td><button class="btn btn-success m-1" data-toggle="modal" data-target="#AddRetailer1" [routerLink]="['/update',product.productid]">Edit</button><button class="btn btn-danger" [routerLink]="['/update',product.productid]" (click)="RemoveProduct()">Delete</button></td>
                   </tr>
                   
                  </tbody>
@@ -143,24 +143,24 @@
         </div>
         <div class="modal-body">
             <form  [formGroup]="Register2form"  (ngSubmit)="Updateproduct()">
-               
-                
+             
+              
                  <div class="mb-3">
                     <label  class="form-label"> Product Price</label>
-                    <input type="number" class="form-control" formControlName="product1price" id="RetailerName">
+                    <input type="number" class="form-control" formControlName="productprice" id="RetailerName">
                  </div>
                  
                  
                 
                  <div class="mb-3">
                    <label  class="form-label"> Product Brand</label>
-                   <input type="text" class="form-control" formControlName="product1brand" id="MobileNumber2">
+                   <input type="text" class="form-control" formControlName="productbrand" id="MobileNumber2">
                 </div>
                 
                 <div class="mb-3">
                 <label  class="form-label"> Product Description</label>
                  
-                   <input type="text" class="form-control" formControlName="product1description" id="productdescription">
+                   <input type="text" class="form-control" formControlName="productdescription" id="productdescription">
                  </div>
                 
              
@@ -168,12 +168,12 @@
             
             <div class="mb-3">
                <label  class="form-label"> Product Quantity</label>
-               <input type="number" class="form-control" formControlName="product1quantity" id="MobileNumber3">
+               <input type="number" class="form-control" formControlName="productquantity" id="MobileNumber3">
             </div>
             <div class="modal-footer">
              <button type="submit" class="btn btn-primary" >Submit</button>
          </div>
-     
+    
                                              
             </form>
         </div>

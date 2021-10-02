@@ -1,5 +1,5 @@
 export class Product{
-  
+    productid?:number;
     productname:string;
     productprice: number;
     productquantity: number;
@@ -16,7 +16,8 @@ export class Product{
         productbrand: string,
         
        
-        categoryid: number)
+        categoryid: number,
+        productid?:number)
         
     {
         
@@ -27,6 +28,7 @@ export class Product{
         this.productbrand=productbrand,
         
         
-        this.categoryid=categoryid
+        this.categoryid=categoryid,
+        this.productid=productid
     }
 }

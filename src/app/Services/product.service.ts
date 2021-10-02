@@ -4,6 +4,7 @@ import { Injectable } from "@angular/core";
 
 import { Observable } from 'rxjs';
 import { Product } from "../models/product.model";
+import { Product1 } from "../models/Product1.model";
 
 @Injectable(  {providedIn: 'root'})
 export class ProductService{
@@ -22,8 +23,12 @@ export class ProductService{
      
       return this.client.post(this.url+"/AddProduct?retaileremail="+retaileremail,product);
     }
-    public UpdateProduct(productid:any,retaileremail:any,product:Product){
-      return this.client.post(this.url+"/RetailerUpdateProduct?productid="+productid+"&remail="+retaileremail,product);
+    public UpdateProduct(productid:any,product:Product){
+      return this.client.put(this.url+"/RetailerUpdateProduct?productid="+productid,product);
   }
-    
+  RejectProduct(productid:any)
+  {
+      const httpheader={headers:new HttpHeaders({'Content-Type':'text/html'})};
+      return this.client.put(this.url+"/RejectProduct?productid="+productid,JSON.stringify(productid),httpheader)
+  }
 }
