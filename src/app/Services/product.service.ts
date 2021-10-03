@@ -31,4 +31,20 @@ export class ProductService{
       const httpheader={headers:new HttpHeaders({'Content-Type':'text/html'})};
       return this.client.put(this.url+"/RejectProduct?productid="+productid,JSON.stringify(productid),httpheader)
   }
+  getAllProducts()
+  {
+    return this.client.get('http://localhost:23441/api/Product/AllProducts');
+  }
+
+  searchallProducts(s:string)
+  {
+    const httpheader={headers:new HttpHeaders({'Content-Type':'text/html'})};
+    return this.client.get("http://localhost:23441/api/Product/SearchProduct?search="+s,httpheader);
+  }
+
+  getallcategories()
+  {
+    return this.client.get("http://localhost:23441/api/Product/GetCategory")
+  }
 }
+

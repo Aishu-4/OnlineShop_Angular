@@ -31,6 +31,7 @@ import { UserProfileComponent } from './Users/user-profile/user-profile.componen
 import { WishlistComponent } from './Users/wishlist/wishlist.component';
 import { CartComponent } from './cart/cart.component';
 import { PendingProductsComponentComponent } from './pending-products-component/pending-products-component.component';
+import { AllProductsComponent } from './all-products/all-products.component';
 
 
 
@@ -64,6 +65,7 @@ import { PendingProductsComponentComponent } from './pending-products-component/
         WishlistComponent,
         CartComponent,
         PendingProductsComponentComponent,
+        AllProductsComponent,
        
         
        

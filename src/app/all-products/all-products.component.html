@@ -1,0 +1,59 @@
+<app-nav-bar></app-nav-bar>
+<br>
+<div class=" container nav-item">
+    <div class="input-group Search">
+    <input class="form-control" type="search" [(ngModel)]="search" style="font-family: Arial, Helvetica, sans-serif;"placeholder="Search for products, brands and more" aria-label="Search"> 
+    <div class="input-group-append">
+      <button class="btn btn-primary" type="button" (click)="FetchSearchResults()">
+        <i class="fa fa-search"></i>
+      </button>
+    </div>
+    </div>
+</div>
+<br>
+
+<div class="row">
+    <div class="col">
+        <li class="nav-item">
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" (click)="onCategory()" data-toggle="dropdown" >
+                Categories
+              </button>
+              <div class="dropdown-menu " aria-labelledby="dropdownMenuButton" >
+                <div class="row">
+                    <div class="col" *ngFor = "let ct of categories">
+                      <a  class="dropdown-item" (click)="ByCategory(ct.categoryname)" >{{ct.categoryname}}</a>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </li>
+    </div>
+</div>
+
+
+<div class="container" *ngIf="searchstatus==false && filterbycategorystatus==false">
+    <div class="row">
+        <div *ngFor="let product of Products" class = "shadow-lg col-sm-3 p-3">
+            <app-top-products [product]="product"></app-top-products>
+        </div>
+    </div>    
+</div>
+<br>
+
+
+<div class="container" *ngIf="searchstatus==true">
+    <div class="row">
+        <div *ngFor="let s of searchdetails" class = "shadow-lg col-sm-3 p-3">
+            <app-top-products [product]="s"></app-top-products>
+        </div>
+    </div>
+</div>
+
+<div class="container" *ngIf="filterbycategorystatus==true">
+    <div class="row">
+        <div *ngFor="let fc of filterbycategory" class = "shadow-lg col-sm-3 p-3">
+            <app-top-products [product]="fc"></app-top-products>
+        </div>
+    </div>    
+</div>

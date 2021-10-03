@@ -20,6 +20,9 @@ import { UserOTPComponent } from './Users/user-otp/user-otp.component';
 import { UserProfileComponent } from './Users/user-profile/user-profile.component';
 import { UserRegisterComponent } from './Users/user-register/user-register.component';
 import { WishlistComponent } from './Users/wishlist/wishlist.component';
+import { CartComponent } from './cart/cart.component';
+import { AllProductsComponent } from './all-products/all-products.component';
+import { ProductDesComponent } from './Products/product-des/product-des.component';
 
 
 
@@ -42,6 +45,10 @@ const routes: Routes = [
   {path:'UserProfile',component:UserProfileComponent},
   {path:'PendingProducts',component:PendingProductsComponentComponent},
   {path:"update/:productid",component:ProductDetailsComponent},
+  {path:'Cart', component:CartComponent},
+  {path:'AllProducts', component:AllProductsComponent},
+  {path:'ProductDescription/:productid', component:ProductDesComponent},
+
 
 
 

@@ -6,6 +6,7 @@ import { AdminService } from 'src/app/Services/admin.service';
 import { RetailerService } from '../Services/retailer.service';
 
 import { ThisReceiver } from '@angular/compiler';
+import { ProductService } from '../Services/product.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -22,7 +23,8 @@ export class NavBarComponent implements OnInit {
   retailerlogged:boolean=false;
   user:null|string="";
   userlogged:boolean=false;
-  constructor(private UserService: UserService,private AdminService:AdminService,private RetailerService:RetailerService ,private router: Router) { }
+  categories : any
+  constructor(private UserService: UserService,private AdminService:AdminService,private RetailerService:RetailerService ,private router: Router, private productService :ProductService) { }
 
   ngOnInit(): void {
     this.admin = sessionStorage.getItem('admin');
@@ -157,4 +159,13 @@ get retailerpassword()
       });
     }
   } 
+  onCategory(){
+    this.productService.getallcategories().subscribe((data : any) => {
+      this.categories = data;
+      console.log(this.categories)
+    }
+      )
+  }
+  
+
 }

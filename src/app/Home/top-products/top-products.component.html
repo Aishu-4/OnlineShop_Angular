@@ -1,24 +1,27 @@
-<div class="card">
-    <div class="card-img-wrapper">
-    <img class="card-img-top" src ="assets\Images\Carousel\ku.jpg">
-    <ul class="list-inline text-center member-icons animate">
-        <li class="list-inline-item">
-            <button class="btn btn-primary"><i class="far fa-heart"></i></button>
-        </li>
-        <li class="list-inline-item">
-            <button class="btn btn-primary"><i class="fas fa-shopping-cart"></i></button>
-        </li>
-        <li class="list-inline-item">
-            <button class="btn btn-primary">Compare</button>
-        </li>
-    </ul>
-    </div>
-    <div class="card-body p-2">
-        
-        <h5 style="text-align:center"> {{product.Name}}</h5>
-        <h6 style="text-align:center"> {{product.Price}}</h6>
-        <h6 style="text-align:center"> {{product.Desc}}</h6>
-    </div>
+<a routerLink="/ProductDescription/{{product.productid}}">
+    <div class="card">
+        <div class="card-img-wrapper">
+            <img class="card-img-top" src="{{product.productimage1}}">
+            <ul class="list-inline text-center member-icons animate">
+                <li class="list-inline-item">
+                    <button class="btn btn-primary"><i class="far fa-heart"></i></button>
+                </li>
+                <li class="list-inline-item">
+                    <button class="btn btn-primary"><i class="fas fa-shopping-cart"></i></button>
+                </li>
+                <li class="list-inline-item">
+                    <button class="btn btn-primary">Compare</button>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body p-2">
+            
+            <h5 style="text-align:center"> {{product.productname}}</h5>
+            <h6 style="text-align:center"> {{product.productprice}}</h6>
+            <h6 style="text-align:center"> {{product.productdescription}}</h6>
+        </div>
+    </div>        
+    </a> 
         
     
 

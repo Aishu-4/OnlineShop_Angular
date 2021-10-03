@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CartService {
-  url:string="http://localhost:35085/api/Cart/";
+  url:string="http://localhost:23441/api/Cart/";
   constructor(private removeProductCartHttp:HttpClient,
     private insertIntoCartHttp:HttpClient,private getTotalHttp:HttpClient,
     private updateQuantityCartHttp:HttpClient,private getcarthttp:HttpClient) { }
@@ -28,7 +28,7 @@ export class CartService {
 
     AddtoCart(val : any) {
         const httpheader={headers:new HttpHeaders({'Content-Type':'application/json'})};
-        return this.insertIntoCartHttp.post("http://localhost:35085/api/Cart/InsertIntoCart",val ,httpheader);
+        return this.insertIntoCartHttp.post("http://localhost:23441/api/Cart/InsertIntoCart",val ,httpheader);
     }
    
     GetTotal(useremail:any)
