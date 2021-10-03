@@ -30,20 +30,23 @@ export class ProductDetailsComponent implements OnInit {
   ProductsLists : any = [];
 
  
-  
+  retailerlogged:boolean=false;
   submitted=false;
   check:boolean=false;
   checkpassword:any;
   status:any;
-  
+  name:any;
   id:any;
 
   product?:Product
   
   ngOnInit(): void {
-  
+    
+    
     this.retaileremail = sessionStorage.getItem('retailer');
- 
+    if(this.retaileremail != null ){
+      this.retailerlogged=true;
+    this.name=this.retaileremail}
   
     this.AdminService.GetCategories()
     .subscribe(
@@ -193,6 +196,13 @@ export class ProductDetailsComponent implements OnInit {
         }
       })
   }
+  
+  LogOff(){
+    this.retailerlogged=false;
+    alert("Logout successful");
+    sessionStorage.clear();
+  }
+
   
       }
 

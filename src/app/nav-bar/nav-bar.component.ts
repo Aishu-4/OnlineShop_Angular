@@ -68,11 +68,14 @@ export class NavBarComponent implements OnInit {
         console.log(this.statusObj);
         if(this.statusObj.status == "successful") {
           this.status = "Login Successfull";
-          alert(this.status)
-          sessionStorage.setItem('user', this.LoginForm.controls.useremail.value);
-          //this.router.navigateByUrl("Home")
-          this.router.navigateByUrl("/UserProfile");
           
+         
+          //this.router.navigateByUrl("Home")
+        
+          alert(this.status)
+         
+          sessionStorage.setItem('user', this.LoginForm.controls.useremail.value);
+          this.router.navigateByUrl("/UserProfile");
         }
         else {
           this.status = "Inavlid credentials";
@@ -112,7 +115,7 @@ export class NavBarComponent implements OnInit {
        
          // this.router.navigate(['Admin']);
          this.router.navigateByUrl("/Admin1");
-       
+        
         }
         else {
           this.status = "Inavlid credentials";
@@ -151,6 +154,7 @@ get retailerpassword()
           sessionStorage.setItem('reload',"done");
          // this.router.navigate(['Admin']);
          this.router.navigateByUrl("/Login");
+        
          
         }
         else {
