@@ -22,7 +22,11 @@ export class UserService{
     {
         return this.client.post(this.url+"/AddUser",JSON.stringify(user), this.httpOptions);
     }
-    
+    UserDetails(useremail:any)
+{
+    const httpheader={headers:new HttpHeaders({'Content-Type':'text/html'})};
+    return this.client.get(this.url+"/UserDetails?useremail="+useremail)
+}
    
    
 }

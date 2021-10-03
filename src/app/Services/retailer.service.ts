@@ -41,4 +41,9 @@ export class RetailerService{
                this.url+"/AddProductImage?productid="+productid, theFile, this.httpOptions);
 
 }
+RetailerDetails(retaileremail:any)
+{
+    const httpheader={headers:new HttpHeaders({'Content-Type':'text/html'})};
+    return this.client.get(this.url+"/RetailerDetails?retaileremail="+retaileremail)
+}
 }

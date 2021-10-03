@@ -105,13 +105,14 @@ export class NavBarComponent implements OnInit {
         console.log(this.statusObj);
         if(this.statusObj.status == "successful") {
           this.status = "Login Successfull";
+        
           alert(this.status)
-          
+         
           sessionStorage.setItem('admin', this.AdminLoginForm.controls.email.value);
-          sessionStorage.setItem('reload',"done");
+       
          // this.router.navigate(['Admin']);
          this.router.navigateByUrl("/Admin1");
-         
+       
         }
         else {
           this.status = "Inavlid credentials";
@@ -167,5 +168,4 @@ get retailerpassword()
       )
   }
   
-
 }

@@ -45,7 +45,7 @@ export class ProductDesComponent implements OnInit {
           alert("Product added successfully");
          }
          else {
-           alert("Not added")
+           alert("Not available")
          }
         });
    
