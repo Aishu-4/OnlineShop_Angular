@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -12,11 +13,13 @@ import { RetailerService } from 'src/app/Services/retailer.service';
 })
 export class ProductDetailsComponent implements OnInit {
   
-  
+ 
+
+
 
   constructor(private AdminService:AdminService,
     private ProductService:ProductService,private router:Router,
-    private RetailerService:RetailerService, private myRoute:ActivatedRoute) {
+    private RetailerService:RetailerService, private myRoute:ActivatedRoute,private http:HttpClient) {
       
       }
   retaileremail:null|string="";
@@ -190,8 +193,10 @@ export class ProductDetailsComponent implements OnInit {
         }
       })
   }
+  
+      }
 
-}
+
   
 
 

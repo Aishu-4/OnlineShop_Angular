@@ -4,6 +4,7 @@ import { Injectable } from "@angular/core";
 
 
 import { Observable } from 'rxjs';
+import { FileToUpload } from "../models/FileToUpload ";
 import { Retailer } from "../models/retailer.model";
 
 @Injectable(  {providedIn: 'root'})
@@ -34,5 +35,10 @@ export class RetailerService{
       return this.client.put(this.url+"/RemoveProduct?productid="+productid,JSON.stringify(productid),httpheader)
   }
    
+  UploadFile(productid:any,theFile: FileToUpload) : Observable<any> {
    
+    return this.client.post<FileToUpload>(
+               this.url+"/AddProductImage?productid="+productid, theFile, this.httpOptions);
+
+}
 }
